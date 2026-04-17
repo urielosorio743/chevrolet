@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Chevrolet</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .productos-section {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .productos-section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .model-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #f0f0f0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .model-image img {
+            width: 100%;
+            height: 80%;
+            object-fit: cover;
+        }
+
+        .model-image h3 {
+            margin: 10px 0 0 0;
+            font-size: 24px;
+            color: #222;
+        }
+
+        .carousel-item:hover .model-image {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .carousel-btn {
+            background: #c41e3a;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.2s;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+        }
+
+        .carousel-btn:hover {
+            background: #a01830;
+        }
+
+        .carousel-btn:active {
+            opacity: 0.9;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .dot.active {
+            background: #c41e3a;
+        }
+
+        .info-section {
+            max-width: 1000px;
+            margin: 40px auto 80px;
+            padding: 0 20px;
+        }
+
+        .info-section h2 {
+            color: #c41e3a;
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .info-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            padding: 24px;
+            flex: 1 1 280px;
+            min-width: 280px;
+            max-width: 300px;
+        }
+
+        .product-card h3 {
+            color: #c41e3a;
+            margin-bottom: 14px;
+            font-size: 22px;
+        }
+
+        .product-card p,
+        .product-card ul {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .product-card ul {
+            padding-left: 18px;
+        }
+
+        .product-card li {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .productos-section h1 {
+                font-size: 36px;
+            }
+
+            .model-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .model-image h3 {
+                font-size: 18px;
+            }
+
+            .carousel-container {
+                padding: 20px;
+            }
+        }
+
+        .boton-menu-principal {
+            display: inline-block;
+            background: #c41e3a;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.2s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-left: 15px;
+            border: none;
+        }
+
+        .boton-menu-principal:hover {
+            background: #a01830;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="C.jpg" alt="Logo Chevrolet">
+        </div>
+        <nav class="menu">
+            <a href="menu.html">inicio</a>
+            <a href="productos.html">productos</a>
+            <a href="contactanos.html">contactanos</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="productos-section">
+            <h1>Nuestros Productos</h1>
+            <p style="font-size: 18px; color: #666; margin-bottom: 20px;">Descubre los modelos Chevrolet disponibles en nuestro catálogo. Aquí encontrarás desde deportivos y pickups hasta SUVs familiares y sedanes cómodos.</p>
+            <p style="font-size: 16px; color: #666; margin-bottom: 40px; max-width: 760px; margin-left: auto; margin-right: auto;">Cada modelo está diseñado para cubrir una necesidad diferente: potencia y desempeño, carga y resistencia, espacio para la familia y tecnología moderna para la conducción diaria.</p>
+            <div style="display:flex; justify-content:center; gap:18px; flex-wrap:wrap; max-width:760px; margin:0 auto 20px;">
+            </div>
+        </section>
+
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-wrapper" id="carouselWrapper">
+                    <!-- Imágenes de modelos Chevrolet -->
+                    <div class="carousel-item">
+                        <div class="model-image">
+                            <img src="camaro.jpg" alt="Chevrolet Camaro">
+                            <h3>Camaro</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="model-image">
+                            <img src="silverado.jpg" alt="Chevrolet Silverado">
+                            <h3>Silverado</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="model-image">
+                            <img src="tahoe.jpg" alt="Chevrolet Tahoe">
+                            <h3>Tahoe</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="model-image">
+                            <img src="corvette.jpg" alt="Chevrolet Corvette">
+                            <h3>Corvette</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="model-image">
+                            <img src="malibu.jpg" alt="Chevrolet Malibu">
+                            <h3>Malibu</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controles del carrusel -->
+            <div class="carousel-controls">
+                <button class="carousel-btn" id="prevBtn">❮</button>
+                <button class="carousel-btn" id="nextBtn">❯</button>
+            </div>
+
+            <!-- Indicadores de puntos -->
+            <div class="carousel-dots" id="dots"></div>
+        </div>
+
+        <section class="info-section">
+            <h2>Más información de nuestros modelos</h2>
+            <div class="info-grid">
+                <div class="product-card">
+                    <h3>Camaro</h3>
+                    <p>El Camaro combina diseño deportivo, alto rendimiento y tecnología para una conducción emocionante.</p>
+                    <ul>
+                        <li>Motor V6 / V8</li>
+                        <li>0-100 km/h en menos de 4 segundos</li>
+                        <li>Frenos deportivos Brembo</li>
+                    </ul>
+                </div>
+                <div class="product-card">
+                    <h3>Silverado</h3>
+                    <p>La Silverado ofrece potencia, capacidad de carga y una cabina cómoda tanto para trabajo como para viajes.</p>
+                    <ul>
+                        <li>Capacidad de remolque superior a 10,000 lb</li>
+                        <li>Tren motriz turbo diesel disponible</li>
+                        <li>Interior amplio con tecnología integrada</li>
+                    </ul>
+                </div>
+                <div class="product-card">
+                    <h3>Tahoe</h3>
+                    <p>Tahoe es la SUV ideal para la familia con espacio, seguridad y un rendimiento confiable en carretera.</p>
+                    <ul>
+                        <li>Hasta 8 pasajeros</li>
+                        <li>Sistema de entretenimiento trasero</li>
+                        <li>Asistencia de conducción avanzada</li>
+                    </ul>
+                </div>
+                <div class="product-card">
+                    <h3>Corvette</h3>
+                    <p>El Corvette representa la mejor expresión de la velocidad y el diseño icónico de Chevrolet.</p>
+                    <ul>
+                        <li>Motor V8 de alto desempeño</li>
+                        <li>Diseño aerodinámico de fibra de carbono</li>
+                        <li>Centro de control digital</li>
+                    </ul>
+                </div>
+                <div class="product-card">
+                    <h3>Malibu</h3>
+                    <p>Malibu es un sedán elegante, eficiente y cómodo, ideal para uso diario con estilo.</p>
+                    <ul>
+                        <li>Consumo equilibrado</li>
+                        <li>Asistente de estacionamiento</li>
+                        <li>Conectividad Apple CarPlay/Android Auto</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const carousel = document.getElementById('carouselWrapper');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dotsContainer = document.getElementById('dots');
+        
+        let currentIndex = 0;
+        const totalItems = 5;
+
+        // Crear puntos indicadores
+        for (let i = 0; i < totalItems; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'dot' + (i === 0 ? ' active' : '');
+            dot.onclick = () => goToSlide(i);
+            dotsContainer.appendChild(dot);
+        }
+
+        const dots = document.querySelectorAll('.dot');
+
+        function updateCarousel() {
+            const offset = -currentIndex * 100;
+            carousel.style.transform = `translateX(${offset}%)`;
+            
+            // Actualizar puntos
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            updateCarousel();
+        }
+
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+
+        // Auto-advance carousel cada 5 segundos
+        setInterval(nextSlide, 5000);
+    </script>
+</body>
+</html>
